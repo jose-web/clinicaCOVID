@@ -14,12 +14,38 @@ public class Vacuna {
 	private boolean vacunado = false;
 
 	public static ArrayList<Vacuna> todos = new ArrayList<Vacuna>();
+	public static Integer pfizer = 2000;
+	public static Integer Moderna = 1500;
+	public static Integer jandj = 0;
 
 	public Vacuna(Long idPaciente, String tipo, LocalDate fecha) {
 		super();
 		this.idPaciente = idPaciente;
 		this.tipo = tipo;
 		this.fecha = fecha;
+
+		switch (tipo) {
+		case "pfizer":
+			if (pfizer != 0)
+				pfizer--;
+			else
+				System.out.println("No quedan dosis de pfizer");
+			return;
+
+		case "Moderna":
+			if (Moderna != 0)
+				Moderna--;
+			else
+				System.out.println("No quedan dosis de Moderna");
+			return;
+
+		case "Johnson&Johnson":
+			if (jandj != 0)
+				jandj--;
+			else
+				System.out.println("No quedan dosis de Johnson&Johnson");
+			return;
+		}
 
 		todos.add(this);
 	}
@@ -224,5 +250,67 @@ public class Vacuna {
 
 		pacienteVacuna.setVacunado(true);
 		return true;
+	}
+
+	public static void administrar() {
+		Scanner entradaEscaner = new Scanner(System.in);
+
+		System.out.println("-----------------------------------------------------");
+		System.out.println("ADMINISTRACIÓN DE VACUNAS");
+		System.out.println("-----------------------------------------------------");
+		System.out.println();
+		System.out.println("1 - Ver stock");
+		System.out.println("2 - Añadir stock a pfizer");
+		System.out.println("3 - Añadir stock a Moderna");
+		System.out.println("4 - Añadir stock a Johnson&Johnson");
+
+		boolean repetir;
+		Integer teclado = -1;
+
+		do {
+			System.out.println("Elija una opción: ");
+			repetir = false;
+			try {
+				teclado = Integer.parseInt(entradaEscaner.nextLine());
+			} catch (Exception e) {
+				repetir = true;
+				System.out.println("Introduzca una opción válida por favor");
+			}
+		} while (repetir);
+
+		if (teclado == 1) {
+			System.out.println("-----------------------------------");
+			System.out.println("pfizer: " + pfizer);
+			System.out.println("Moderna: " + Moderna);
+			System.out.println("Johnson&Johnson: " + jandj);
+			System.out.println("-----------------------------------");
+		} else if (teclado == 2 || teclado == 3 || teclado == 4) {
+			Integer teclado2 = -1;
+
+			do {
+				System.out.println("Introduzca la cantidad: ");
+				repetir = false;
+				try {
+					teclado2 = Integer.parseInt(entradaEscaner.nextLine());
+				} catch (Exception e) {
+					repetir = true;
+					System.out.println("Introduzca un valor válido por favor");
+				}
+			} while (repetir);
+
+			switch (teclado) {
+			case 2:
+				Moderna += teclado2;
+				break;
+			case 3:
+				pfizer += teclado2;
+				break;
+			case 4:
+				jandj += teclado2;
+				break;
+			}
+
+		}
+
 	}
 }

@@ -86,6 +86,7 @@ public class Empleado extends Persona {
 			System.out.println("-------------------------");
 			System.out.println("9 - asignar prueba covid");
 			System.out.println("10 - asignar vacuna covid");
+			System.out.println("11 - administrar vacunas");
 			System.out.println();
 			System.out.println("Escriba aquí su elección: ");
 			try {
@@ -125,6 +126,9 @@ public class Empleado extends Persona {
 				break;
 			case 10:
 				Vacuna.cita();
+				break;
+			case 11:
+				Vacuna.administrar();
 				break;
 			}
 		} while (entradaTeclado != 0);

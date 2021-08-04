@@ -344,7 +344,7 @@ public class PruebasDiagnosticas {
 		System.out.println("***********************************************");
 
 		new PruebasDiagnosticas(pacientePrueba.getIdPaciente(), pacientePrueba.getIdEnfermero(),
-				pacientePrueba.getIdTecnico(), pacientePrueba.getTipo(), proximaCita);
+				pacientePrueba.getIdTecnico(), "test serologicos", proximaCita);
 
 ////////////////////////////////////////////////////////////
 
