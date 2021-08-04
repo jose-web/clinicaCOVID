@@ -48,6 +48,12 @@ public class Paciente extends Persona {
 
 	}
 
+	public static void baja() {
+		verTodos();
+		Paciente paciente = buscarDni();
+		todos.remove(paciente);
+	}
+
 	public void modifica() {
 		Scanner entradaEscaner = new Scanner(System.in);
 

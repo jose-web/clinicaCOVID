@@ -64,8 +64,8 @@ public class Main {
 //			login = !Empleado.login(dni, pass);
 
 ///////////////////////////// LOGIN AUTOMÁTICO //////////////////////////////
-//			login = !Empleado.login("11111111A", "1"); // admin
-			login = !Empleado.login("3", "1"); // enfermero
+			login = !Empleado.login("11111111A", "1"); // admin
+//			login = !Empleado.login("3", "1"); // enfermero
 /////////////////////////////////////////////////////////////////////////////
 
 			if (login) {

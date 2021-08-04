@@ -81,9 +81,11 @@ public class Empleado extends Persona {
 			System.out.println("1 - alta\t2- alta");
 			System.out.println("3 - modificar\t4 - modificar");
 			System.out.println("5 - ver \t6 - ver");
+			System.out.println("7 - baja \t8 - baja");
+
 			System.out.println("-------------------------");
-			System.out.println("7 - asignar prueba covid");
-			System.out.println("8 - asignar vacuna covid");
+			System.out.println("9 - asignar prueba covid");
+			System.out.println("10 - asignar vacuna covid");
 			System.out.println();
 			System.out.println("Escriba aquí su elección: ");
 			try {
@@ -113,9 +115,15 @@ public class Empleado extends Persona {
 				Empleado.verTodos();
 				break;
 			case 7:
-				PruebasDiagnosticas.cita();
+				Paciente.baja();
 				break;
 			case 8:
+				Empleado.baja();
+				break;
+			case 9:
+				PruebasDiagnosticas.cita();
+				break;
+			case 10:
 				Vacuna.cita();
 				break;
 			}
@@ -228,6 +236,12 @@ public class Empleado extends Persona {
 		System.out.println("Se ha creado correctamente el empleado");
 		System.out.println(nuevo.toString());
 
+	}
+
+	public static void baja() {
+		verTodos();
+		Empleado empleado = buscarDni();
+		todos.remove(empleado);
 	}
 
 	public void modifica() {
